@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			body {
+				min-width:400px;
+				overflow-x:hidden;
+				color: #333;
+			}
+			
+			p {
+				font_size: 14px;
+			}
+			
+			p span {
+				background: yellow;
+				color: blue;
+			}
+			
+			li {
+				font_size: 14px;
+			}
+			
+			li span {
+				color: green;
+			}
+			
+		</style>
+
+		<script>
+			function updatePopup(selText){
+				document.getElementById('f_text').textContent = selText["text"];				
+				document.getElementById('f_size').textContent = selText["font_size"];
+				document.getElementById('f_family').textContent = selText["font_family"];
+				document.getElementById('f_style').textContent = selText["font_style"];
+				document.getElementById('f_weight').textContent = selText["font_weight"];				
+				document.getElementById('f_color').textContent = selText["font_color"];								
+			}
+		</script>
+	</head>
+	<body>
+		<p>Selected Text: <span id="f_text"><span></p>
+		<ul>
+			<li>Size: <span id="f_size"></span></li>
+			<li>Family: <span id="f_family"></span></li>
+			<li>Style: <span id="f_style"></span></li>
+			<li>Weight: <span id="f_weight"></span></li>			
+			<li>Color: <span id="f_color"></span></li>
+		</ul>
+		
+		<script type="text/javascript"> 
+			chrome.extension.onRequest.addListener(updatePopup);
+			chrome.tabs.executeScript(null, { file: "content_script.js" });	
+	    </script>
+	
+	</body>
+</html>
