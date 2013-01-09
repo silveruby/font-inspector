@@ -22,7 +22,7 @@
 		selText['font_color'] = window.getComputedStyle(element, null)["color"];		
 	}
 	
-	chrome.extension.sendRequest(selText);
+	chrome.extension.sendMessage(selText);
 		
 })(window.getSelection().toString(), window.getSelection().focusNode.parentElement);
 

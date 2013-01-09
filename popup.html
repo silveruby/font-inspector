@@ -4,17 +4,6 @@
 		<!-- Le styles -->
 	    <link rel="stylesheet" type="text/css" href="popup.css">
 	
-		<script>
-			function updatePopup(selText){
-				document.getElementById('f_text').textContent = selText["text"];				
-				document.getElementById('f_size').textContent = selText["font_size"];
-				// document.getElementById('f_height').textContent = selText["line_height"];					
-				document.getElementById('f_family').textContent = selText["font_family"];
-				document.getElementById('f_style').textContent = selText["font_style"];
-				document.getElementById('f_weight').textContent = selText["font_weight"];				
-				document.getElementById('f_color').textContent = selText["font_color"];											
-			}
-		</script>
 	</head>
 	<body>
 		<p><strong>Selected Text</strong><br /><span id="f_text">No text selected<span></p>
@@ -27,10 +16,8 @@
 			<li><strong>Color</strong><span id="f_color">No text selected</span></li>
 		</ul>
 		
-		<script type="text/javascript"> 
-			chrome.extension.onRequest.addListener(updatePopup);
-			chrome.tabs.executeScript(null, { file: "content_script.js" });	
-	    </script>
-	
+		<!-- Le Sctipt -->		
+    	<script src="popup.js"></script>
+
 	</body>
 </html>
